@@ -1,7 +1,7 @@
+%module opentxs
 /*
 This file is copied from the opentxs repo (opentxs/wrapper/opentxs.i)
 */
-
 
 /*
 

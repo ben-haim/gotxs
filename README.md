@@ -8,11 +8,14 @@ In order install the bindings, you need to link the necessary header files from
 
 ````
 cd gotxs/opentxs/
-mkdir include/
 ln -s $HOME/path/to/opentxs/deps/ include/
 ln -s $HOME/path/to/opentxs/include/opentxs/ include/
-
-cd ..
-go install
+# fix the paths in Makefile
+make install
 ````
 
+Then you can install the `gotxs` package
+
+````
+go install
+````
