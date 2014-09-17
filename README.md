@@ -8,7 +8,7 @@ In order install the bindings, you need to link the necessary header files from
 
 ````
 cd gotxs/opentxs/
-ln -s $HOME/path/to/opentxs/deps/ include/
+ln -s $HOME/path/to/opentxs/deps/containers/ include/
 ln -s $HOME/path/to/opentxs/include/opentxs/ include/
 # fix the paths in Makefile
 make install
