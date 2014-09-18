@@ -1,3 +1,4 @@
+.PHONY: all
 # Some of the hard-coded paths could be determined at runtime
 
 # this is where libopentxs-core.so etc live
@@ -7,6 +8,8 @@ LIBPATH=/usr/local/lib64
 GOINCLUDE=/usr/lib/go/pkg/linux_amd64
 
 LIBNAME=libopentxs-golang.so
+
+all: $(LIBNAME) opentxs.a
 
 opentxs_wrap.cxx opentxs_gc.c opentxs.go: opentxs.i
 	swig -soname $(LIBNAME) -c++ -go -intgosize 64 opentxs.i
@@ -44,5 +47,3 @@ clean:
 install: opentxs.a $(LIBNAME)
 	sudo cp -v $(LIBNAME) $(LIBPATH)
 	sudo ldconfig
-	echo "if you're in $GOPATH/src/gopath/opentxs you can run 'go install'"
-	echo "in order to install the go package"
