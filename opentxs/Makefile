@@ -10,12 +10,13 @@ libopentxs-golang.so: opentxs_wrap.cxx
 	g++ -g -fpic -shared -std=c++11 -DEXPORT= \
 		-Iinclude/ \
 		-L$(LIBPATH) \
+		$< \
 		-lopentxs-client \
+		-lopentxs-ext \
 		-lopentxs-cash \
 		-lopentxs-basket \
-		-lopentxs-ext \
 		-lopentxs-core \
-		$< -o $@
+		-o $@
 
 	# we need to remove this file because
 	# it confuses `go install'
