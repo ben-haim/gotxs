@@ -44,6 +44,9 @@ clean:
 	rm -f *.c
 	rm -f *.cxx
 
+opentxs.txt:
+	godoc . > $@
+
 install: opentxs.a $(LIBNAME)
 	sudo cp -v $(LIBNAME) $(LIBPATH)
 	sudo ldconfig
