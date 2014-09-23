@@ -5,7 +5,10 @@
 package gotxs_test
 
 import "testing"
-import "gotxs"
+
+import "gotxs" // for Cleanup()
+import "gotxs/easy"
+
 import check "gopkg.in/check.v1"
 
 // Hook up gocheck into the "go test" runner.
@@ -20,7 +23,7 @@ func (s *MySuite) TestBasicApi(c *check.C) {
 	nym_source := ""
 	alt_location := ""
 
-	retval, err := gotxs.CreatePseudonym(keysize, nym_source, alt_location)
+	retval, err := easy.CreatePseudonym(keysize, nym_source, alt_location)
 
 	if err == nil {
 		c.Logf("created new pseudonym %s", retval)
@@ -29,7 +32,6 @@ func (s *MySuite) TestBasicApi(c *check.C) {
 	}
 
 }
-
 
 func (s *MySuite) TearDownSuite(c *check.C) {
 	gotxs.Cleanup()
