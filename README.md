@@ -29,7 +29,7 @@ The bindings consist of three separate packages:
 
 This cointains a SWIG-generated module generated from an interface file. It
 exports a few hundred functions that are translated from C++, which can be seen
-in [this text file](gotxs/opentxs/opentxs.go).
+in [this text file](opentxs/opentxs.go).
 
 Low-level API functions start with the prefix `OTAPI_Wrap` and are static
 methods of the C++ class with the same.
