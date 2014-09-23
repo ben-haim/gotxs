@@ -4,8 +4,8 @@ package easy
 
 import "errors"
 
-import _ "gotxs" // import for init() side effect
-import "gotxs/opentxs"
+import _ "github.com/monetas/gotxs" // import for init() side effect
+import "github.com/monetas/gotxs/opentxs"
 
 var otme opentxs.OT_ME
 

@@ -6,8 +6,8 @@ package gotxs_test
 
 import "testing"
 
-import "gotxs" // for Cleanup()
-import "gotxs/easy"
+import "github.com/monetas/gotxs" // for Cleanup()
+import "github.com/monetas/gotxs/easy"
 
 import check "gopkg.in/check.v1"
 

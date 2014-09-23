@@ -6,7 +6,7 @@
 package gotxs
 
 // this are the lower-level, SWIG-generated bindings
-import "gotxs/opentxs"
+import "github.com/monetas/gotxs/opentxs"
 
 
 
