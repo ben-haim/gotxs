@@ -69,8 +69,12 @@ methods, the implementation needs to be examined.
 
 ### Input sanitation
 
-This is difficult to do upfront. When we discover that something causes opentxs
-to crash hard unexpectedly, we should fix it on the Go side.
+Some wrapped method calls crash hard and freeze the process on invalid input
+(See opentxs issue [#196](https://github.com/Open-Transactions/opentxs/issues/196)).
+We should be careful to catch these errors early on the Go side, where it makes sense.
+
+If you find an invalid input that causes freeze where it shouldn't, add it to the
+the linked opentxs issue or open a new one there.
 
 ### Return values
 
