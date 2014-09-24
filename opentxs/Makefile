@@ -38,6 +38,7 @@ opentxs.a: opentxs_gc.c opentxs.go
 
 clean:
 	rm -f *.so
+	rm -f *.dylib
 	rm -f *.a
 	rm -f *.6
 	rm -f *.go
