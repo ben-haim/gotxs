@@ -1,6 +1,6 @@
 This is attempt at creating Go bindings for OpenTransactions (opentxs).
 
-#Instructions
+# Instructions
 
 In order install the bindings, you need to link the necessary header files from
 `opentxs` to the `include/` subdirectory.
