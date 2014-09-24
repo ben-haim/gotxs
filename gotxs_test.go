@@ -20,10 +20,10 @@ var _ = check.Suite(&MySuite{})
 // just make a basic api call and Cleanup() after that
 func (s *MySuite) TestBasicApi(c *check.C) {
 	keysize := 1024
-	nym_source := ""
-	alt_location := ""
+	nymSource := ""
+	altLocation := ""
 
-	retval, err := easy.CreatePseudonym(keysize, nym_source, alt_location)
+	retval, err := easy.CreatePseudonym(keysize, nymSource, altLocation)
 
 	if err == nil {
 		c.Logf("created new pseudonym %s", retval)
