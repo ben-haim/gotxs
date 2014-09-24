@@ -24,6 +24,21 @@ func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, erro
 	return retval, nil
 }
 
+func RegisterNym(serverID, nymID string) (string, error) {
+	message := otme.Register_nym(serverID, nymID)
+	if message == "" {
+		return "", errors.New("unable to register pseudonym, empty response")
+	}
+	success := opentxs.OTAPI_WrapMessage_GetSuccess(message)
+	if success == -1 {
+		return message, errors.New("unable to register pseudonym, error response")
+	}
+	if success != 1 {
+		return message, errors.New("unable to register pseudonym, failed response")
+	}
+	return message, nil
+}
+
 // create a reference to a OT_ME() instance
 // needs gotxs import which calls init()
 func init() {
