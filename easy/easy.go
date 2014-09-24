@@ -24,7 +24,6 @@ func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, erro
 	return retval, nil
 }
 
-
 // create a reference to a OT_ME() instance
 // needs gotxs import which calls init()
 func init() {
