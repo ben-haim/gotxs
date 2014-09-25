@@ -11,7 +11,7 @@ var otme opentxs.OT_ME
 
 // CreatePseudonym creates a new pseudonym in the local wallet.
 // Keybits must be one of 1024, 2048, 4096 or 8192
-// The arguments ny_id_source and alt_location are optional.
+// The arguments nyIdSource and altLocation are optional.
 // Returns generated pseudonym id.
 func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, error) {
 
@@ -24,6 +24,10 @@ func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, erro
 	return retval, nil
 }
 
+// RegisterNym takes a locally created Nym and registers it at the provided server.
+// Returns the message from the server. This message is a SAMY hashed document
+// containing an XML snippet and a signature. The snippet is an OTMessage with
+// an '@createUserAccount' node.
 func RegisterNym(serverID, nymID string) (string, error) {
 	message := otme.Register_nym(serverID, nymID)
 	if message == "" {
