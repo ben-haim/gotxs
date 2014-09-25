@@ -1,5 +1,4 @@
-// This is just a very basic test to see if the gotxs/opentxs package
-// compiled correctly.
+// Check that the gotxs/opentxs package compiled correctly.
 //
 // Run 'go test -v'
 package gotxs_test
@@ -18,7 +17,7 @@ type MySuite struct{}
 
 var _ = check.Suite(&MySuite{})
 
-// just make a basic api call and Cleanup() after that
+// Make an API call and Cleanup() after that.
 func (s *MySuite) TestCreatePseudonym(c *check.C) {
 	keysize := 1024
 	nymSource := ""
@@ -34,11 +33,11 @@ func (s *MySuite) TestCreatePseudonym(c *check.C) {
 
 }
 
-// Test basic message verification (only that it throws an error)
+// Test basic message verification (only that it throws an error).
 func (s *MySuite) TestMessageGetSuccess(c *check.C) {
 	// It's non-trival to construct a valid message with signatures and
 	// all. This just checks if we can call the function, that it
-	// doesn't crash and returns an error (no signatures can be found)
+	// doesn't crash and returns an error (no signatures can be found).
 	const invalidMessage = "invalid message"
 	_, err := gotxs.MessageGetSuccess(invalidMessage)
 	c.Assert(err, check.NotNil)
