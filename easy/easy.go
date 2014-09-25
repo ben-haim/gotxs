@@ -11,7 +11,7 @@ var otme opentxs.OT_ME
 
 // CreatePseudonym creates a new pseudonym in the local wallet.
 // Keybits must be one of 1024, 2048, 4096 or 8192
-// The arguments ny_id_source and alt_location are optional.
+// The arguments nyIdSource and altLocation are optional.
 // Returns generated pseudonym id.
 func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, error) {
 
