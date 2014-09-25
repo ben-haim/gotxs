@@ -24,6 +24,10 @@ func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, erro
 	return retval, nil
 }
 
+// RegisterNym takes a locally created Nym and registers it at the provided server.
+// Returns the message from the server. This message is a SAMY hashed document
+// containing an XML snippet and a signature. The snippet is an OTMessage with
+// an '@createUserAccount' node.
 func RegisterNym(serverID, nymID string) (string, error) {
 	message := otme.Register_nym(serverID, nymID)
 	if message == "" {
