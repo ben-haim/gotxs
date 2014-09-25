@@ -7,12 +7,11 @@ package gotxs
 
 import "errors"
 
-// this are the lower-level, SWIG-generated bindings
+// Lower-level, SWIG-generated bindings.
 import "github.com/monetas/gotxs/opentxs"
 
 const (
-	// these constants are common return values
-	// defined in OTAPI_Exec.cpp
+	// Common return values defined in OTAPI_Exec.cpp
 	otError = -1
 	otFalse = 0
 	otTrue  = 1

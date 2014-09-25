@@ -1,5 +1,5 @@
-// This package contains all wrappers for the methods exposed by the OT_ME class
-// Like in the gotxs package, we translate errors and provide some documentation
+// This package contains all wrappers for the methods exposed by the OT_ME class.
+// Like in the gotxs package, we translate errors and provide some documentation.
 package easy
 
 import "errors"
@@ -10,9 +10,9 @@ import "github.com/monetas/gotxs/opentxs"
 var otme opentxs.OT_ME
 
 // CreatePseudonym creates a new pseudonym in the local wallet.
-// Keybits must be one of 1024, 2048, 4096 or 8192
-// The arguments nyIdSource and altLocation are optional.
-// Returns generated pseudonym id.
+// keybits must be one of 1024, 2048, 4096 or 8192
+// The arguments nymIdSource and altLocation can be empty strings.
+// Returns a generated pseudonym id.
 func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, error) {
 
 	retval := otme.Create_pseudonym(keybits, nymIdSource, altLocation)
@@ -27,7 +27,7 @@ func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, erro
 // RegisterNym takes a locally created Nym and registers it at the provided server.
 // Returns the message from the server. This message is a SAMY hashed document
 // containing an XML snippet and a signature. The snippet is an OTMessage with
-// an '@createUserAccount' node.
+// a '@createUserAccount' node.
 func RegisterNym(serverID, nymID string) (string, error) {
 	message := otme.Register_nym(serverID, nymID)
 	if message == "" {
@@ -43,8 +43,8 @@ func RegisterNym(serverID, nymID string) (string, error) {
 	return message, nil
 }
 
-// create a reference to a OT_ME() instance
-// needs gotxs import which calls init()
+// Create a reference to a OT_ME() instance.
+// Needs gotxs import which calls init().
 func init() {
 	otme = opentxs.NewOT_ME()
 }
