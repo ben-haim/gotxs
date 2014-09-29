@@ -3,12 +3,9 @@ SWIG.
 
 # Requirements
 
-* Swig 3
-* Go 1.3
+* Swig 3 (packages stuck at v. 2 in Ubuntu, compile from source)
+* Go 1.3 (packages stuck at v. 1.2 in Ubuntu, install manually)
 * recent opentxs
-
-If you are running Ubuntu, you have to compile the recent Swig and Go versions
-from source yourself.
 
 # Build and install instructions
 
@@ -18,37 +15,35 @@ from `opentxs` to the `include/` subdirectory:
 ```
 cd gotxs/opentxs/
 
-ln -s $HOME/path/to/opentxs/deps/containers include/
-ln -s $HOME/path/to/opentxs/include/opentxs include/
+ln -s /path/to/opentxs/deps/containers include/
+ln -s /path/to/opentxs/include/opentxs include/
 
 # fix the paths in Makefile
-
-vim Makefile
+$EDITOR Makefile
 
 make install
 ```
 
 Then you can install the `gotxs` package. This will install the `gotxs/opentxs`
-sub-package as well.
+sub-package as well:
 
 ```
 # in gotxs/
 go install
 ```
 
-You should then be able to run the tests
+Then run the tests:
 
 ```
-# must match LIBPATH as defined in the Makefile
-# different on Mac OSX!
-export LD_LIBRARY_PATH=/usr/local/lib64
+# match LIBPATH as defined in the Makefile (different on Mac OS/X)
+export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu
 
 go test
 ```
 
-## Mac OSX
+## Mac OS/X
 
-There are some addional changes required to the Makefile to run this on a Mac:
+Additional changes to the Makefile are required on OS/X:
 
 1. `LIBPATH` should point to the `lib/` dir of your opentxs install.
 2. `GOINCLUDE` points to `/usr/local/Cellar/go/1.3.1/libexec/pkg/darwin_amd64`
@@ -56,7 +51,7 @@ There are some addional changes required to the Makefile to run this on a Mac:
 3. `LIBNAME` is `libopentxs-golang.dylib`.
 4. Add the magic `-flat_namespace` and `-undefined suppress` to the g++ line.
 
-Then run `make`. Ignore the ldconfig error, it's a Linux thing.
+Run `make`. Ignore the ldconfig error, it's a Linux thing.
 Then export an environment variable to point to the installed dylib:
 
 ```
