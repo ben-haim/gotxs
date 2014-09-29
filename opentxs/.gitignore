@@ -1,2 +1,8 @@
 include/opentxs
 include/containers
+libopentxs-golang.so
+opentxs.6
+opentxs.a
+opentxs_gc.6
+opentxs_gc.c
+opentxs.go

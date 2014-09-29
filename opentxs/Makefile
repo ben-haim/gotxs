@@ -1,11 +1,11 @@
 .PHONY: all
-# Some of the hard-coded paths could be determined at runtime
+# TODO: some of the hard-coded paths may be determined at runtime.
 
-# this is where libopentxs-core.so etc live
-LIBPATH=/usr/local/lib64
+# Where libopentxs-core.so etc. live.
+LIBPATH=/usr/local/lib/x86_64-linux-gnu
 
-# this is where "runtime.h"
-GOINCLUDE=/usr/lib/go/pkg/linux_amd64
+# Where "runtime.h" lives: adjust according to local Go runtime install.
+GOINCLUDE=/usr/local/share/go/pkg/linux_amd64
 
 LIBNAME=libopentxs-golang.so
 
@@ -26,8 +26,7 @@ $(LIBNAME): opentxs_wrap.cxx
 		-lopentxs-core \
 		-o $@
 
-	# we need to remove this file because
-	# it confuses `go install'
+	# This file confuses `go install', remove it.
 	rm $<
 
 opentxs.a: opentxs_gc.c opentxs.go
