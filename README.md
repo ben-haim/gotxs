@@ -1,4 +1,4 @@
-This is attempt at creating Go bindings for OpenTransactions (opentxs) using
+This is an attempt at creating Go bindings for OpenTransactions (opentxs) using
 SWIG.
 
 # Requirements
