@@ -7,6 +7,9 @@ SWIG.
 * Go 1.3
 * recent opentxs
 
+If you are running Ubuntu, you have to compile the recent Swig and Go versions
+from source yourself.
+
 # Build and install instructions
 
 In order to install the bindings, you need to link the necessary header files
