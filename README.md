@@ -1,43 +1,69 @@
-This is an attempt at creating Go bindings for OpenTransactions (opentxs).
+This is an attempt at creating Go bindings for OpenTransactions (opentxs) using
+SWIG.
 
-# Instructions
+# Requirements
+
+* Swig 3
+* Go 1.3
+* recent opentxs
+
+If you are running Ubuntu, you have to compile the recent Swig and Go versions
+from source yourself.
+
+# Build and install instructions
 
 In order to install the bindings, you need to link the necessary header files
 from `opentxs` to the `include/` subdirectory:
 
 ```
 cd gotxs/opentxs/
+
 ln -s $HOME/path/to/opentxs/deps/containers include/
 ln -s $HOME/path/to/opentxs/include/opentxs include/
+
 # fix the paths in Makefile
+
+vim Makefile
+
 make install
 ```
 
-Then you can install the `gotxs` package:
+Then you can install the `gotxs` package. This will install the `gotxs/opentxs`
+sub-package as well.
 
 ```
 # in gotxs/
 go install
 ```
 
+You should then be able to run the tests
+
+```
+# must match LIBPATH as defined in the Makefile
+# different on Mac OSX!
+export LD_LIBRARY_PATH=/usr/local/lib64
+
+go test
+```
+
 ## Mac OSX
 
 There are some addional changes required to the Makefile to run this on a Mac:
 
-1. LIBPATH should point to the lib/ dir of your opentxs install.
-2. GOINCLUDE points to /usr/local/Cellar/go/1.3.1/libexec/pkg/darwin_amd64 (or
-   whatever version you have).
-3. LIBNAME is libopentxs-golang.dylib.
-4. Add the magic '-flat_namespace' and '-undefined suppress' to the g++ line.
+1. `LIBPATH` should point to the `lib/` dir of your opentxs install.
+2. `GOINCLUDE` points to `/usr/local/Cellar/go/1.3.1/libexec/pkg/darwin_amd64`
+   (or whatever version you have).
+3. `LIBNAME` is `libopentxs-golang.dylib`.
+4. Add the magic `-flat_namespace` and `-undefined suppress` to the g++ line.
 
-Then run 'make'. Ignore the ldconfig error, it's a Linux thing.
+Then run `make`. Ignore the ldconfig error, it's a Linux thing.
 Then export an environment variable to point to the installed dylib:
 
 ```
 $ set -xg DYLD_LIBRARY_PATH ~/opentxs/lib/
 ```
 
-Possibly DYLD_FALLBACK_LIBRARY_PATH is better.
+Possibly `DYLD_FALLBACK_LIBRARY_PATH` is better.
 
 # Development
 
