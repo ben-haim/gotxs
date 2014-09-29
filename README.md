@@ -1,6 +1,13 @@
-This is an attempt at creating Go bindings for OpenTransactions (opentxs).
+This is attempt at creating Go bindings for OpenTransactions (opentxs) using
+SWIG.
 
-# Instructions
+# Requirements
+
+* Swig 3
+* Go 1.3
+* recent opentxs
+
+# Build and install instructions
 
 In order to install the bindings, you need to link the necessary header files
 from `opentxs` to the `include/` subdirectory:
