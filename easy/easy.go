@@ -12,16 +12,16 @@ var otme opentxs.OT_ME
 // CreateNym creates a new nym in the local wallet.
 // keybits must be one of 1024, 2048, 4096 or 8192
 // The arguments nymIdSource and altLocation can be empty strings.
-// Returns a generated pseudonym id.
+// Returns the id of the created nym.
 func CreateNym(keybits int, nymIdSource, altLocation string) (string, error) {
 
-	retval := otme.Create_nym(keybits, nymIdSource, altLocation)
+	result := otme.Create_nym(keybits, nymIdSource, altLocation)
 
-	if retval == "" {
+	if result == "" {
 		return "", errors.New("empty return value")
 	}
 
-	return retval, nil
+	return result, nil
 }
 
 // RegisterNym takes a locally created Nym and registers it at the provided server.
