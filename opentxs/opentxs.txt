@@ -844,8 +844,6 @@ func OTRecordListTextFrom() string
 
 func OTRecordListTextTo() string
 
-func OTRecord_GetTypeString(int) string
-
 func OT_API_Set_AddrBookCallback(arg1 OTLookupCaller) bool
 
 func OT_API_Set_PasswordCallback(arg1 Opentxs_OTCaller) bool
@@ -1542,7 +1540,7 @@ type OT_ME interface {
     Make_sure_enough_trans_nums(arg2 int, arg3 string, arg4 string) bool
     Register_nym(arg2 string, arg3 string) string
     Check_user(arg2 string, arg3 string, arg4 string) string
-    Create_pseudonym(arg2 int, arg3 string, arg4 string) string
+    Create_nym(arg2 int, arg3 string, arg4 string) string
     Issue_asset_type(arg2 string, arg3 string, arg4 string) string
     Issue_basket_currency(arg2 string, arg3 string, arg4 string) string
     Exchange_basket_currency(arg2 string, arg3 string, arg4 string, arg5 string, arg6 string, arg7 bool) string
@@ -3137,7 +3135,7 @@ func (arg1 SwigcptrOT_ME) Create_asset_acct(arg2 string, arg3 string, arg4 strin
 
 func (arg1 SwigcptrOT_ME) Create_market_offer(arg2 string, arg3 string, arg4 int64, arg5 int64, arg6 int64, arg7 int64, arg8 bool, arg9 int64, arg10 string, arg11 int64) string
 
-func (arg1 SwigcptrOT_ME) Create_pseudonym(arg2 int, arg3 string, arg4 string) string
+func (arg1 SwigcptrOT_ME) Create_nym(arg2 int, arg3 string, arg4 string) string
 
 func (arg1 SwigcptrOT_ME) Deposit_cash(arg2 string, arg3 string, arg4 string, arg5 string) bool
 

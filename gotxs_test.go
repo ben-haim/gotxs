@@ -18,17 +18,17 @@ type MySuite struct{}
 var _ = check.Suite(&MySuite{})
 
 // Make an API call and Cleanup() after that.
-func (s *MySuite) TestCreatePseudonym(c *check.C) {
+func (s *MySuite) TestCreateNym(c *check.C) {
 	keysize := 1024
 	nymSource := ""
 	altLocation := ""
 
-	retval, err := easy.CreatePseudonym(keysize, nymSource, altLocation)
+	nymId, err := easy.CreateNym(keysize, nymSource, altLocation)
 
 	if err == nil {
-		c.Logf("created new pseudonym %s", retval)
+		c.Logf("created new nym %s", nymId)
 	} else {
-		c.Error("could not create new pseudoynm")
+		c.Errorf("could not create new pseudoynm: %s", err)
 	}
 
 }
