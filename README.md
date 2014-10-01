@@ -32,9 +32,11 @@ sub-package as well:
 go install
 ```
 
-Then run the tests:
+To run the tests you need the gocheck library:
 
 ```
+git clone https://github.com/go-check/check.git
+
 # match LIBPATH as defined in the Makefile (different on Mac OS/X)
 export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu
 
