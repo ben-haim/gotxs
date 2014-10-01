@@ -26,7 +26,7 @@ func (s *MySuite) TestCreateNym(c *check.C) {
 	if err == nil {
 		c.Logf("created new nym %s", nymId)
 	} else {
-		c.Errorf("could not create new pseudoynm: %s", err)
+		c.Errorf("could not create new nym: %s", err)
 	}
 
 }
