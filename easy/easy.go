@@ -9,13 +9,13 @@ import "github.com/monetas/gotxs/opentxs"
 
 var otme opentxs.OT_ME
 
-// CreatePseudonym creates a new pseudonym in the local wallet.
+// CreateNym creates a new nym in the local wallet.
 // keybits must be one of 1024, 2048, 4096 or 8192
 // The arguments nymIdSource and altLocation can be empty strings.
 // Returns a generated pseudonym id.
-func CreatePseudonym(keybits int, nymIdSource, altLocation string) (string, error) {
+func CreateNym(keybits int, nymIdSource, altLocation string) (string, error) {
 
-	retval := otme.Create_pseudonym(keybits, nymIdSource, altLocation)
+	retval := otme.Create_nym(keybits, nymIdSource, altLocation)
 
 	if retval == "" {
 		return "", errors.New("empty return value")
