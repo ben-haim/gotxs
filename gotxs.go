@@ -5,10 +5,12 @@
 // provide some documentation.
 package gotxs
 
-import "errors"
+import (
+	"errors"
 
-// Lower-level, SWIG-generated bindings.
-import "github.com/monetas/gotxs/opentxs"
+	// Lower-level, SWIG-generated bindings.
+	"github.com/monetas/gotxs/opentxs"
+)
 
 const (
 	// Common return values defined in OTAPI_Exec.cpp
@@ -27,15 +29,16 @@ const (
 func MessageGetSuccess(message string) (bool, error) {
 	result := opentxs.OTAPI_WrapMessage_GetSuccess(message)
 
-	if result == otError {
+	switch result {
+	case otError:
 		return false, errors.New("error in MessageGetSuccess()")
-	} else if result == otFalse {
+	case otFalse:
 		return false, nil
-	} else if result == otTrue {
+	case otTrue:
 		return true, nil
+	default:
+		return false, errors.New("unknown return value")
 	}
-
-	return false, errors.New("unknown return value")
 }
 
 // The initialization can be done automatically. This function is called when
