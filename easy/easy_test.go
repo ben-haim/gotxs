@@ -3,7 +3,8 @@ package easy_test
 import (
 	"testing"
 
-	"github.com/go-check/check"
+	"gopkg.in/check.v1"
+
 	"github.com/monetas/gotxs" // for Cleanup()
 	"github.com/monetas/gotxs/easy"
 )
